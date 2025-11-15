@@ -32,3 +32,11 @@
            + >    >   <   >
            * <    >   >   >
            $ <    <   <   -
+           
+    O identificador é uma não variável, e sempre irá possuir maior precedência sobre todos os operadores matemáticos.
+
+    $ têm a menor precedência de todos.
+
+    Durante o processo, não se compara os identificadores/operadores quando não é possível fazer a gramática. No exemplo acima, não seria possível fazer **idid**, isso porque sempre existe um operador entre dois identificadores. Ou seja, a linguagem não gera sentenças com identificadores adjacentes, então a configuração **idid** nunca ocoorre e não haverá relaçao de precedência definida entre dois **id** consegutivos.
+
+    Outro detalhe é que quando comparado a 2 operadores iguais, a associatividade à esquerda que é a que conta, aentão a parte esquerda da tabela é a prioritária.
