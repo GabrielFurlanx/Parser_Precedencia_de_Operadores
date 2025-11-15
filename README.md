@@ -22,3 +22,13 @@
        Já a gramática de operador abaixo é aceita, pois não há variáveis adjacentes:
 
               S -> SbSbS l SbS l b
+
+## 2. Tabela de precedência de Operadores
+
+  - Trabalhando nesse exemplo de gramática: E -> E+E l E*E l id ; Podemos identificar na tabela dessa forma:
+
+           **id	  +	  *  	$**
+          id -	  >	  >  	>
+           + >    >   <   >
+           * <    >   >   >
+           $ <    <   <   -
