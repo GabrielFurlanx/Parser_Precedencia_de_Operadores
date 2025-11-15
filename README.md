@@ -10,4 +10,11 @@
 
   - Um exemplo do que não pode ser feito seria E -> EAFG , pois possui dois terminais juntos.
 
-  
+  - Não pode ter produções lambda/vazias porque ao permitir que um não terminal seja eliminado, os vizinhos entre símbolos terminais tornam-se imprevisívei.
+
+  - É possível transormar gramáticas que não podem ser usadas no parseer de precedência de operadores, por exemplo:
+
+       Gramática de operador não aceita, pois há variáveis adjsacentes
+
+              S -> SAS l b
+              A -> bSb l b 
