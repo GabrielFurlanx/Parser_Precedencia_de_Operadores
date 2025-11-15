@@ -66,4 +66,5 @@
 
     Utilizamos o livro Compiladores: **Princípios, Técnicas e Ferramentas** para compreender a estruturação e entender melhor como funciona o analisador sintático. Ele foi a base para a estruturação do projeto e conhecimento do grupo.
 
-    Recorremos ao vídeo [https://www.youtube.com/watch?v=-arvgXHgfnM](https://www.youtube.com/watch?v=-arvgXHgfnM) para ter melhor compreensão e ter uma referência visual, além da explicação ter sido esclarecedora sobre o assunto.
+    Recorremos ao vídeo [Compiladores 10 - Algoritmo de Análise Sintática com precedência de operador - exemplo de execução - Canal 
+Aulas de Computação](https://www.youtube.com/watch?v=-arvgXHgfnM) para ter melhor compreensão e ter uma referência visual, além da explicação ter sido esclarecedora sobre o assunto.
