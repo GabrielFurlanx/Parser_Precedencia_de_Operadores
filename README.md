@@ -17,4 +17,8 @@
        Gramática de operador não aceita, pois há variáveis adjsacentes
 
               S -> SAS l b
-              A -> bSb l b 
+              A -> bSb l b
+
+       Já a gramática de operador abaixo é aceita, pois não há variáveis adjacentes:
+
+              S -> SbSbS l SbS l b
