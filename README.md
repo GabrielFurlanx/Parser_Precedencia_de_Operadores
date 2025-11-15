@@ -46,11 +46,11 @@
 
    - Tendo isso em mente, para realização de nosso trabalho iremos:
 
-  1 - Escrever o algoritmo de anáçise sintática em C++ como foi exigido em sala de aula.
-  2 - Gerar a tabela
-  3 - Realizar a leitura de palavra
-  4 - Jogar na pilha
-  5 - Mover o lookahead
+  1. Escrever o algoritmo de análise sintática em C++ como foi exigido em sala de aula;
+2. Gerar a tabela;
+3. Realizar a leitura da palavra;
+4. Jogar na pilha;
+5. Mover o lookahead.
 
 
   ## 4. Como fizemos e Referências utilizadas
