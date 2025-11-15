@@ -27,7 +27,7 @@
 
   - Trabalhando nesse exemplo de gramática: E -> E+E l E*E l id ; Podemos identificar na tabela dessa forma:
 
-           **id	  +	  *  	$**
+             id	  +	  *  	$
           id -	  >	  >  	>
            + >    >   <   >
            * <    >   >   >
