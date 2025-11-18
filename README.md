@@ -16,22 +16,22 @@
 
        Gramática de operador não aceita, pois há variáveis adjsacentes
 
-              S -> SAS l b
-              A -> bSb l b
+              S -> SAS | b
+              A -> bSb | b
 
        Já a gramática de operador abaixo é aceita, pois não há variáveis adjacentes:
 
-              S -> SbSbS l SbS l b
+              S -> SbSbS | SbS | b
 
 ## 2. Tabela de precedência de Operadores
 
   - Trabalhando nesse exemplo de gramática: E -> E+E l E*E l id ; Podemos identificar na tabela dessa forma:
 
              id	  +	  *  	$
-          id -	  >	  >  	>
-           + >    >   <   >
-           * <    >   >   >
-           $ <    <   <   -
+          id  -   >	  >  	>
+           +  >   >   <   >
+           *  <   >   >   >
+           $  <   <   <   -
            
     O identificador é uma não variável, e sempre irá possuir maior precedência sobre todos os operadores matemáticos.
 
@@ -46,7 +46,7 @@
 
    - Tendo isso em mente, para realização de nosso trabalho iremos:
 
-  1. Escrever o algoritmo de análise sintática em C++ como foi exigido em sala de aula;
+1. Escrever o algoritmo de análise sintática em C++ como foi exigido em sala de aula;
 2. Gerar a tabela;
 3. Realizar a leitura da palavra;
 4. Jogar na pilha;
