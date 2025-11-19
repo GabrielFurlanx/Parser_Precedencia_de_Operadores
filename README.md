@@ -3,11 +3,11 @@
 Nesse trabalho abordaremos como é o funcionamento da **Procedência de Operadores**, que é um analisador sintático do tipo **ascendente**, isso é, um analisador que realiza o reconhecimento sintático a partir da palavra até o símbolo inicial.
 
 ### Membros
-Gabriel Matheus Aguilera Silva
-Gabriel Furlan Costa
-Eduardo Henrique Duarte de Araujo
-Fabrizio Catucci Borghesi
-Carlos Gabriel Augusto Nunes
+- Gabriel Matheus Aguilera Silva
+- Gabriel Furlan Costa
+- Eduardo Henrique Duarte de Araujo
+- Fabrizio Catucci Borghesi
+- Carlos Gabriel Augusto Nunes
 
 ## 1. Como funciona?
 
