@@ -2,6 +2,7 @@
 #include <vector>
 #include <string>
 #include <sstream>
+#include <iomanip>
 
 using namespace std;
 
@@ -74,27 +75,55 @@ int obter_indice(const vector<string>& lista, const string& elemento) {
     return -1;
 }
 
-void analise_sintatica(const vector<vector<string>>& tabela,
-                       const string& palavra,
-                       const vector<string>& lista_simbolos)
+string print_vector_to_string(const vector<string> &vec)
+{
+    stringstream ss;
+    for (const string &s : vec)
+    {
+        ss << s << " ";
+    }
+    return ss.str();
+}
+
+string print_input_to_string(const vector<string> &input, int index)
+{
+    stringstream ss;
+    for (size_t i = index; i < input.size(); ++i)
+    {
+        ss << input[i] << " ";
+    }
+    return ss.str();
+}
+
+void analise_sintatica(const vector<vector<string>> &tabela,
+                       const string &palavra,
+                       const vector<string> &lista_simbolos)
 {
     vector<string> palavra_lista;
     stringstream ss(palavra);
     string tok;
 
-    while (ss >> tok) {
+    while (ss >> tok)
+    {
         palavra_lista.push_back(tok);
     }
-
     palavra_lista.push_back("$");
 
     vector<string> pilha = {"$"};
-
     int indice_lookahead = 0;
-    int count = -1;
+    int count = 0;
 
-    while (true) {
-        count++;
+    cout << "\n### Análise Sintática Passo a Passo ###\n"
+         << endl;
+    cout << left << setw(10) << "ITER."
+         << left << setw(25) << "PILHA"
+         << left << setw(25) << "ENTRADA"
+         << left << setw(10) << "RELAÇÃO"
+         << left << setw(15) << "AÇÃO" << endl;
+    cout << string(85, '-') << endl;
+
+    while (true)
+    {
         string lookahead = palavra_lista[indice_lookahead];
         string topo_pilha = pilha.back();
 
@@ -102,51 +131,74 @@ void analise_sintatica(const vector<vector<string>>& tabela,
         int indice_coluna = obter_indice(lista_simbolos, topo_pilha);
         string precedencia = tabela[indice_linha][indice_coluna];
 
-        cout << "lookahead iteração: " << count
-             << " indice: " << indice_lookahead
-             << " lookahead: " << lookahead << endl;
+        string pilha_str = print_vector_to_string(pilha);
+        string entrada_str = print_input_to_string(palavra_lista, indice_lookahead);
 
-        cout << "topo da pilha iteração " << count << ": " << topo_pilha << endl;
+        cout << left << setw(10) << count
+             << left << setw(25) << pilha_str
+             << left << setw(25) << entrada_str
+             << left << setw(10) << precedencia;
 
-        if (precedencia == ">") {
+        if (precedencia == ">")
+        {
+            cout << left << setw(15) << "Empilha (Shift)" << endl;
             pilha.push_back(lookahead);
             indice_lookahead++;
         }
-        else if (precedencia == "<") {
-            if (!pilha.empty()) pilha.pop_back();
+        else if (precedencia == "<")
+        {
+            cout << left << setw(15) << "Reduz (Reduce)" << endl;
+            if (!pilha.empty())
+                pilha.pop_back();
         }
-        else if (lookahead != "$") {
+        else if (lookahead != "$")
+        {
+            cout << left << setw(15) << "Erro" << endl;
             throw runtime_error("Palavra não parseável");
         }
-
-        cout << "Pilha iteração " << count << ": [";
-        for (int i = 0; i < pilha.size(); i++) {
-            cout << "'" << pilha[i] << "'";
-            if (i < pilha.size() - 1) cout << ", ";
+        else
+        {
+            cout << left << setw(15) << "Aceita" << endl;
         }
-        cout << "]" << endl;
 
-        if (lookahead == "$" && topo_pilha == "$") {
-            cout << "Palavra parseável" << endl;
+        if (lookahead == "$" && topo_pilha == "$")
+        {
+            cout << string(85, '-') << endl;
+            cout << ">>> Palavra: " << palavra << " parseada com sucesso! <<<" << endl;
+            cout << string(85, '-') << endl;
             break;
         }
+
+        count++;
     }
 }
 
-void ler_palavra(const string& palavra) {
+void ler_palavra(const string &palavra)
+{
     vector<string> palavra_lista = converter_para_lista(palavra);
     vector<string> linha = palavra_lista;
     vector<string> coluna = palavra_lista;
 
     vector<vector<string>> tabela = montar_tabela(linha, coluna);
 
-    for (auto& lin : tabela) {
-        cout << "[";
-        for (int i = 0; i < lin.size(); i++) {
-            cout << "'" << lin[i] << "'";
-            if (i < lin.size() - 1) cout << ", ";
+    cout << "### Tabela de Precedência (Linha=Lookahead, Coluna=TopoPilha) ###" << endl;
+
+    cout << left << setw(5) << "";
+    for (const string &col_header : coluna)
+    {
+        cout << left << setw(5) << col_header;
+    }
+    cout << endl
+         << string((coluna.size() + 1) * 5, '-') << endl;
+
+    for (int i = 0; i < linha.size(); i++)
+    {
+        cout << left << setw(5) << linha[i];
+        for (int j = 0; j < coluna.size(); j++)
+        {
+            cout << left << setw(5) << tabela[i][j];
         }
-        cout << "]" << endl;
+        cout << endl;
     }
 
     analise_sintatica(tabela, palavra, palavra_lista);
@@ -154,5 +206,6 @@ void ler_palavra(const string& palavra) {
 
 int main() {
     ler_palavra("id + id * id");
+    // ler_palavra("id + id id * id"); Palavra não válida no algoritmo
     return 0;
 }
