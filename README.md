@@ -2,6 +2,13 @@
 
 Nesse trabalho abordaremos como é o funcionamento da **Procedência de Operadores**, que é um analisador sintático do tipo **ascendente**, isso é, um analisador que realiza o reconhecimento sintático a partir da palavra até o símbolo inicial.
 
+### Membros
+Gabriel Matheus Aguilera Silva
+Gabriel Furlan Costa
+Eduardo Henrique Duarte de Araujo
+Fabrizio Catucci Borghesi
+Carlos Gabriel Augusto Nunes
+
 ## 1. Como funciona?
 
 - É o único analisador sintático que trabalha com gramáticas ambíguas, através da tabela de precedência de operadores.
@@ -160,6 +167,6 @@ g++ analisador_precedencia.cpp -o analisador
 analisador.exe
 ```
 
-## 5. Referências utilizadas:
+## 6. Referências utilizadas:
 
 Utilizamos o livro **Compiladores: Princípios, Técnicas e Ferramentas** para compreender a estruturação e entender melhor como funciona o analisador sintático. Ele foi a base para a estruturação do projeto e conhecimento do grupo, nele tem até um exemplo de pseudocódigo desse algoritmo de análise de precedência, na página 91, com uma explicação consistente de cada passo a ser realizado.
