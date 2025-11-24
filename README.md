@@ -135,14 +135,14 @@ Definimos o lookahead como 0, para apontar para a posição 0 da lista que corre
 Com base no símbolo lido na iteração, comparamos sua precedência com a do elemento na cauda (tail) da pilha, para isso fazemos a checagem da matriz[simbolo_lido][tail_da_pilha] e então realizamos uma condicional:
 
 ```
-Se o símbolo da precedência for ">" (precedência do símbolo lido for maior que do tail da pilha):
+Se o símbolo da precedência for ">" (precedência do símbolo lido for maior que do tail da pilha, SHIFT):
     Adiciona na pilha o símbolo lido;
     Soma 1 ao lookahead;
-Se o símbolo da precedência for "<" (precedência do símbolo lido for menor que do tail da pilha):
+Se o símbolo da precedência for "<" (precedência do símbolo lido for menor que do tail da pilha, REDUCE):
     Remove o tail da pilha;
     Mantém o lookahead como está;
 Se o símbolo da precedência for "-" (precedência do símbolo lido for menor que do tail da pilha):
-    Se o símbolo lido for $ (significa que tanto pilha quanto palavra chegaram ao seu final):
+    Se o símbolo lido for $ (significa que tanto pilha quanto palavra chegaram ao seu final, ACEITE):
         "A palavra foi parseada com sucesso"
     Senão (Significa que na palavra há uma sequência de identificadores, o que não é válido nesse algoritmo):
         Erro: "Palavra não parseável"
