@@ -81,11 +81,11 @@ um método que checa condicionalmente qual a precedência de cada símbolo de 1 
 e 4 a maior precedência
 
  Se o símbolo lido for "$":
-     Precedência = 4
+     Precedência = 1
  Se o símbolo lido for "+" ou "-":
-     Precedência = 3
+     Precedência = 2
  Se o símbolo lido for "*" ou "/":
-     Precedência: 4
+     Precedência: 3
  Senão (significa que é identificador):
      Precedência: 4
 ```
